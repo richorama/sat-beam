@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sat Pattern</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Add references to the Atlas Map control JavaScript and CSS files. -->
+  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+  <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+  <script src="index.js"></script>
+
+
+  <script type='text/javascript'>
+    var map, datasource
+
+
+    function toGeoJson(coords) {
+      return {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                coords.map(x => [x.lng, x.lat])
+              ]
+            }
+          }
+        ]
+      }
+    }
+
+
+    function GetMap() {
+      //Initialize a map instance.
+      map = new atlas.Map('myMap', {
+        center: [0, 0],
+        zoom: 2,
+        view: 'Auto',
+
+        authOptions: {
+          authType: 'subscriptionKey',
+          subscriptionKey: 'yTeQ3oZLOTIBrjpjQh6SB6HG6yvkyi3PU8lL9LJec1I'
+        }
+      });
+
+      infopane = document.getElementById('infopane');
+
+      //Wait until the map resources are ready.
+      map.events.add('ready', function () {
+        //Create a data source to store the data in.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
+
+        //Add a layer for rendering the outline of polygons.
+        var polygonLayer = new atlas.layer.LineLayer(datasource, null, {
+          strokeColor: 'black',
+          filter: ['any', ['==', ['geometry-type'], 'Polygon'], ['==', ['geometry-type'], 'MultiPolygon']]	//Only render Polygon or MultiPolygon in this layer.
+        });
+
+        map.events.add('click', clicked);
+
+        //Add all layers to the map.
+        map.layers.add([polygonLayer]);
+
+      });
+    }
+
+    function clicked(e){
+      datasource.clear()
+      const [lng, lat] = e.position
+      const coords = get_beam(lat, lng, 500, 50)
+      if (!coords) return
+      const geoJson = toGeoJson(coords)
+      datasource.add(geoJson)
+    }
+
+  </script>
+  <style>
+    #myMap {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      float: left;
+    }
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body onload="GetMap()">
+  <div id="myMap"></div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "sat-beam",
+  "version": "1.0.0",
+  "description": "calculates the beam a satellite projects on the earth's surface",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richorama/sat-beam.git"
+  },
+  "keywords": [
+    "satellite",
+    "beam"
+  ],
+  "author": "richard.astbury",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richorama/sat-beam/issues"
+  },
+  "homepage": "https://github.com/richorama/sat-beam#readme",
+  "devDependencies": {
+    "mocha": "^6.2.1"
+  }
+}

@@ -36,7 +36,7 @@ const calcEarthDeg = satLookAngle => {
   return xa > xb ? Math.atan2(ya, xa) : Math.atan2(yb, xb)
 }
 
-module.exports.getBeam = (lat, lng, beamRadiusAtEarthsSurfaceKm, numberOfPoints = 50) => {
+module.exports.getBeam = (lng, lat, beamRadiusAtEarthsSurfaceKm, numberOfPoints = 50) => {
   const lookAngleX = calcSatLookAngle(toRadians(lng))
   const lookAngleY = calcSatLookAngle(toRadians(lat))
   const spreadAngle = Math.atan2(beamRadiusAtEarthsSurfaceKm, o)

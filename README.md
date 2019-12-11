@@ -2,6 +2,8 @@
 
 :satellite: calcuates the beam a satellite projects on the earth's surface
 
+![](screenshot.png)
+
 ## Usage
 
 ```js

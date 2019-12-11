@@ -4,6 +4,8 @@
 
 ![](screenshot.png)
 
+Try out a demo [here](https://richorama.github.io/sat-beam).
+
 ## Usage
 
 ```js

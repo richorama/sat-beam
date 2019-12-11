@@ -6,10 +6,18 @@
 
 Try out a demo [here](https://richorama.github.io/sat-beam).
 
+## Installation
+
+Install via npm.
+
+```
+$ npm install sat-beam
+```
+
 ## Usage
 
 ```js
-const { getBeam } = require('sat-beam')
+import { getBeam } from 'sat-beam'
 
 const lng = 2.0 // degrees
 const lat = 52.0 // degrees

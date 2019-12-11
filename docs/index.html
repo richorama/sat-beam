@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <title>sat-beam demo</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
 
-      #map {
-        width: 100vw;
-        height: 100vh;
-      }
-    </style>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="map"></div>
-  </body>
-  <script src="index.min.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <title>sat-beam demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .message {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-left: 50px;
+      padding-top: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="map"></div>
+  <div class="message">
+    Click on the map to project a beam onto the Earth's surface. <a href="https://github.com/richorama/sat-beam">GitHub repo.</a>
+  </div>
+</body>
+<script src="index.min.js"></script>
+
 </html>

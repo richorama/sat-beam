@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/richorama/sat-beam#readme",
   "devDependencies": {
-    "mocha": "^6.2.1"
+    "mocha": "^10.2.0"
   }
 }
